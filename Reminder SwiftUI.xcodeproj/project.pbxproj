@@ -35,16 +35,6 @@
 			path = "Reminder SwiftUI";
 			sourceTree = "<group>";
 		};
-		0398C7362D4AE7D40079BA3C /* Reminder SwiftUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Reminder SwiftUITests";
-			sourceTree = "<group>";
-		};
-		0398C7402D4AE7D40079BA3C /* Reminder SwiftUIUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Reminder SwiftUIUITests";
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				0398C7252D4AE7D20079BA3C /* Reminder SwiftUI */,
-				0398C7362D4AE7D40079BA3C /* Reminder SwiftUITests */,
-				0398C7402D4AE7D40079BA3C /* Reminder SwiftUIUITests */,
 				0398C7242D4AE7D20079BA3C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -130,9 +118,6 @@
 			dependencies = (
 				0398C7352D4AE7D40079BA3C /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				0398C7362D4AE7D40079BA3C /* Reminder SwiftUITests */,
-			);
 			name = "Reminder SwiftUITests";
 			packageProductDependencies = (
 			);
@@ -152,9 +137,6 @@
 			);
 			dependencies = (
 				0398C73F2D4AE7D40079BA3C /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				0398C7402D4AE7D40079BA3C /* Reminder SwiftUIUITests */,
 			);
 			name = "Reminder SwiftUIUITests";
 			packageProductDependencies = (
