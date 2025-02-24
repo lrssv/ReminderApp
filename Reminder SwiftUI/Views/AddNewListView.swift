@@ -41,6 +41,7 @@ struct AddNewListView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Salvar") {
                         onSave(name, UIColor(selectedColor))
+                        dismiss()
                     }.disabled(!isFormValid)
                 }
             }

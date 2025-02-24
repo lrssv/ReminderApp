@@ -2,13 +2,20 @@ import SwiftUI
 
 struct HomeView: View {
 
+    @FetchRequest(sortDescriptors: [])
+    private var myListResults: FetchedResults<MyList>
+
     @State private var isPresented: Bool = false
 
     var body: some View {
         NavigationStack {
             VStack {
-                Text("Hello world")
                 Spacer()
+
+                MyListsView(myLists: myListResults)
+
+                Spacer()
+
                 Button {
                     isPresented = true
                 } label: {
