@@ -1,10 +1,3 @@
-//
-//  MyListCellView.swift
-//  Reminder SwiftUI
-//
-//  Created by Larissa Silva | Efí on 24/02/25.
-//
-
 import SwiftUI
 
 struct MyListCellView: View {
