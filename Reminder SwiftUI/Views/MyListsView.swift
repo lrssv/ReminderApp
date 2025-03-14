@@ -3,6 +3,7 @@ import SwiftUI
 struct MyListsView: View {
 
     let myLists: FetchedResults<MyList>
+    @State private var isActive: Bool = false
 
     var body: some View {
         NavigationStack {
