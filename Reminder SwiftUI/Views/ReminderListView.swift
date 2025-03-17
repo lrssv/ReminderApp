@@ -6,7 +6,7 @@ struct ReminderListView: View {
 
     var body: some View {
         List(reminders) { reminder in
-            Text(reminder.title ?? "")
+            ReminderCellView(reminder: reminder)
         }
     }
 }
