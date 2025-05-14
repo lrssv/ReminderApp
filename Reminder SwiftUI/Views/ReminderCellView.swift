@@ -3,7 +3,7 @@ import SwiftUI
 enum ReminderCellEvents {
 
     case onInfo
-    case onCheckedChange(Reminder)
+    case onCheckedChange(Reminder, Bool)
     case onSelect(Reminder)
 }
 
@@ -12,6 +12,7 @@ struct ReminderCellView: View {
     let reminder: Reminder
     @State private var checked = false
     let onEvent: (ReminderCellEvents) -> Void
+    let delay = Delay()
 
     var body: some View {
         HStack {
@@ -20,7 +21,10 @@ struct ReminderCellView: View {
                 .opacity(0.4)
                 .onTapGesture {
                     checked.toggle()
-                    onEvent(.onCheckedChange(reminder))
+                    delay.cancel()
+                    delay.performWork {
+                        onEvent(.onCheckedChange(reminder, checked))
+                    }
                 }
             VStack(alignment: .leading) {
                 Text(reminder.title ?? "")
