@@ -10,10 +10,12 @@ enum ReminderCellEvents {
 struct ReminderCellView: View {
 
     let reminder: Reminder
+    let delay = Delay()
+    let isSelected: Bool
+    
     @State private var checked = false
     let onEvent: (ReminderCellEvents) -> Void
-    let delay = Delay()
-
+    
     var body: some View {
         HStack {
             Image(systemName: checked ? "circle.inset.filled" : "circle")
@@ -49,6 +51,7 @@ struct ReminderCellView: View {
 
             Spacer()
             Image(systemName: "info.circle.fill")
+                .opacity(isSelected ? 1.0 : 0)
                 .onTapGesture {
                     onEvent(.onInfo)
                 }
@@ -72,5 +75,9 @@ struct ReminderCellView: View {
 }
 
 #Preview {
-    ReminderCellView(reminder: PreviewData.reminder, onEvent: { _ in })
+    ReminderCellView(
+        reminder: PreviewData.reminder,
+        isSelected: true,
+        onEvent: { _ in }
+    )
 }
