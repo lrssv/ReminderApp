@@ -18,6 +18,11 @@ class ReminderService {
         myList.color = color
         try save()
     }
+    
+    static func deleteReminder(_ reminder: Reminder) throws {
+        viewContext.delete(reminder)
+        try save()
+    }
 
     static func updateReminder(reminder: Reminder, editConfig: ReminderEditConfig) throws -> Bool {
         let reminderToUpdate = reminder
