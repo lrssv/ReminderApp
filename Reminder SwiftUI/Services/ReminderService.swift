@@ -23,6 +23,13 @@ class ReminderService {
         viewContext.delete(reminder)
         try save()
     }
+    
+    static func getReminderByText(_ text: String) -> NSFetchRequest<Reminder> {
+        let request = Reminder.fetchRequest()
+        request.sortDescriptors = []
+        request.predicate = NSPredicate(format: "title CONTAINS[cd] %@", text)
+        return request
+    }
 
     static func updateReminder(reminder: Reminder, editConfig: ReminderEditConfig) throws -> Bool {
         let reminderToUpdate = reminder
