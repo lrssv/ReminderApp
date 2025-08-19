@@ -1,0 +1,38 @@
+import SwiftUI
+
+struct ReminderStatsView: View {
+    
+    let icon: String
+    let title: String
+    let count: Int?
+    let iconColor: Color = .orange
+    
+    var body: some View {
+        VStack {
+            HStack {
+                VStack(alignment: .leading, spacing: 10) {
+                    Image(systemName: icon)
+                        .foregroundColor(iconColor)
+                        .font(.title)
+                    Text(title)
+                        .opacity(0.8)
+                }
+                Spacer()
+                
+                if let count {
+                    Text("\(count)")
+                        .font(.largeTitle)
+                }
+            }.padding()
+                .frame(maxWidth: .infinity)
+                .background(.teal)
+                .foregroundColor(.white)
+                .clipShape(RoundedRectangle(cornerRadius: 16.0, style: .continuous))
+        }
+    }
+}
+
+#Preview {
+    ReminderStatsView(icon: "calendar", title: "Hoje", count: 9)
+}
+

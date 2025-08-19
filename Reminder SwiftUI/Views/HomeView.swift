@@ -12,11 +12,46 @@ struct HomeView: View {
     @State private var isPresented: Bool = false
     @State private var searching: Bool = false
     
+    private var reminderStatsBuilder = ReminderStatsBuilder()
+    @State private var reminderStatsValues = ReminderStatsValues()
+    
     var body: some View {
         NavigationStack {
             VStack {
                 ScrollView {
-                    Spacer(minLength: 20)
+                    HStack {
+                        ReminderStatsView(
+                            icon: "calendar",
+                            title: "Hoje",
+                            count: reminderStatsValues.todayCount
+                        )
+                        ReminderStatsView(
+                            icon: "tray.circle.fill",
+                            title: "Total",
+                            count: reminderStatsValues.allCount
+                        )
+                    }
+                    
+                    HStack {
+                        ReminderStatsView(
+                            icon: "calendar.circle.fill",
+                            title: "Agendado",
+                            count: reminderStatsValues.scheduledCount
+                        )
+                        ReminderStatsView(
+                            icon: "tray.circle.fill",
+                            title: "Finalizado",
+                            count: reminderStatsValues.completedCount
+                        )
+                    }
+                    
+                    Spacer(minLength: 40)
+                    
+                    Text("Minhas listas")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .font(.largeTitle)
+                        .bold()
+                        .padding()
                     
                     MyListsView(myLists: myListResults)
                     
@@ -36,6 +71,9 @@ struct HomeView: View {
             .overlay(alignment: .center, content: {
                 ReminderListView(reminders: searchResults).opacity(searching ? 1 : 0)
             })
+            .onAppear {
+                reminderStatsValues = reminderStatsBuilder.build(myListResult: myListResults)
+            }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .sheet(isPresented: $isPresented) {
                 NavigationView {
