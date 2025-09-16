@@ -3,7 +3,6 @@ import Foundation
 import UIKit
 
 class ReminderService {
-
     static var viewContext: NSManagedObjectContext {
         CoreDataProvider.shared.persistentContainer.viewContext
     }
@@ -54,6 +53,28 @@ class ReminderService {
         let request = Reminder.fetchRequest()
         request.sortDescriptors = []
         request.predicate = NSPredicate(format: "list = %@ AND isCompleted = false", myList)
+        return request
+    }
+    
+    static func getReminderByStat(type: ReminderStatType) -> NSFetchRequest<Reminder> {
+        let request = Reminder.fetchRequest()
+        request.sortDescriptors = []
+        
+        switch type {
+        case .all:
+            request.predicate = NSPredicate(format: "isCompleted = false")
+        case .today:
+            let today = Date()
+            let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: today) ?? Date()
+            request.predicate = NSPredicate(
+                format: "(reminderDate BETWEEN {%@, %@}) OR (reminderTime BETWEEN {%@, %@})", today as NSDate, tomorrow as NSDate
+            )
+        case .scheduled:
+            request.predicate = NSPredicate(format: "(reminderDate != nil OR reminderTime != nil) AND isCompleted = false")
+        case .completed:
+            request.predicate = NSPredicate(format: "isCompleted = true")
+        }
+    
         return request
     }
 }

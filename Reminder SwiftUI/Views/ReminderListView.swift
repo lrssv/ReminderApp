@@ -50,7 +50,8 @@ struct ReminderListView: View {
                     }
                 }.onDelete(perform: deleteReminder)
             }
-        }.sheet(isPresented: $showReminderDetail) {
+        }.background(Color.white)
+        .sheet(isPresented: $showReminderDetail) {
             ReminderDetailView(reminder: Binding($selectedReminder)!)
         }
     }

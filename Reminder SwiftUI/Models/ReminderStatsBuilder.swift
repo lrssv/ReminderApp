@@ -1,8 +1,14 @@
 import Foundation
 import SwiftUI
 
+enum ReminderStatType {
+    case today
+    case all
+    case scheduled
+    case completed
+}
+
 struct ReminderStatsValues {
-    
     var todayCount = 0
     var scheduledCount = 0
     var allCount = 0
@@ -10,7 +16,6 @@ struct ReminderStatsValues {
 }
 
 struct ReminderStatsBuilder {
-    
     func build(myListResult: FetchedResults<MyList>) -> ReminderStatsValues {
         let reminders = myListResult.map {
             $0.remindersArray
