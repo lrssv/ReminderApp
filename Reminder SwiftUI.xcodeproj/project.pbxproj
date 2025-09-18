@@ -29,9 +29,33 @@
 		0398C73D2D4AE7D40079BA3C /* Reminder SwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Reminder SwiftUIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		4E45E5522E7CCFB400888185 /* Exceptions for "Reminder SwiftUI" folder in "Reminder SwiftUI" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				RemindersModel.xcdatamodeld,
+			);
+			target = 0398C7222D4AE7D20079BA3C /* Reminder SwiftUI */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		4E45E5532E7CCFB400888185 /* Exceptions for "Reminder SwiftUI" folder in "Compile Sources" phase from "Reminder SwiftUI" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 0398C71F2D4AE7D20079BA3C /* Sources */;
+			membershipExceptions = (
+				RemindersModel.xcdatamodeld,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		0398C7252D4AE7D20079BA3C /* Reminder SwiftUI */ = {
+		4E45E5372E7CCFB400888185 /* Reminder SwiftUI */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				4E45E5522E7CCFB400888185 /* Exceptions for "Reminder SwiftUI" folder in "Reminder SwiftUI" target */,
+				4E45E5532E7CCFB400888185 /* Exceptions for "Reminder SwiftUI" folder in "Compile Sources" phase from "Reminder SwiftUI" target */,
+			);
 			path = "Reminder SwiftUI";
 			sourceTree = "<group>";
 		};
@@ -65,7 +89,7 @@
 		0398C71A2D4AE7D20079BA3C = {
 			isa = PBXGroup;
 			children = (
-				0398C7252D4AE7D20079BA3C /* Reminder SwiftUI */,
+				4E45E5372E7CCFB400888185 /* Reminder SwiftUI */,
 				0398C7242D4AE7D20079BA3C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -96,7 +120,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				0398C7252D4AE7D20079BA3C /* Reminder SwiftUI */,
+				4E45E5372E7CCFB400888185 /* Reminder SwiftUI */,
 			);
 			name = "Reminder SwiftUI";
 			packageProductDependencies = (

@@ -67,7 +67,17 @@ struct ReminderDetailView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Salvar") {
                         do {
-                            let _ = try ReminderService.updateReminder(reminder: reminder, editConfig: editConfig)
+                            let updated = try ReminderService.updateReminder(reminder: reminder, editConfig: editConfig)
+                            if updated {
+                                if reminder.reminderDate != nil || reminder.reminderTime != nil {
+                                    NotificationManager.scheduleNotification(with: .init(
+                                        title: reminder.title,
+                                        body: reminder.notes,
+                                        date: reminder.reminderDate,
+                                        time: reminder.reminderTime
+                                    ))
+                                }
+                            }
                         } catch {
                             print(error)
                         }
